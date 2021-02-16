@@ -13,10 +13,10 @@ def _enable_logging(f):
         except ModuleNotFoundError:
             return f(*args, **kwargs)
 
-        # Enable logging
+        # Disable logging
         disabled = logging.getLogger("cs50").disabled
         if flask.current_app:
-            logging.getLogger("cs50").disabled = False
+            logging.getLogger("cs50").disabled = True
         try:
             return f(*args, **kwargs)
         finally:
